@@ -1,0 +1,115 @@
+DEBUG:root:Order:2 0 4.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 11 7.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 12 7.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 21 12.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 22 12.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 13 18.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 14 18.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 19 29.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 20 29.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 15 48.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:12 16 48.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:14 7 49.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:2 8 49.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:22 17 50.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:20 18 50.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:12 14 22.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:12 20 29.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Order:12 15 20.0
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+DEBUG:root:Finish turn
+
+ERROR:root:Error in bot.
+Traceback (most recent call last):
+  File "opponent_bots/spread_bot.py", line 76, in <module>
+    current_line = input()
+EOFError: EOF when reading a line

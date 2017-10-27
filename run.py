@@ -54,20 +54,26 @@ def test(bot, opponent_bot, map_num):
 
 if __name__ == '__main__':
     path =  os.getcwd()
-    opponents = ['opponent_bots/easy_bot.py',
-                 'opponent_bots/spread_bot.py',
-                 'opponent_bots/aggressive_bot.py',
-                 'opponent_bots/defensive_bot.py',
-                 'opponent_bots/production_bot.py']
+    opponents = ['opponent_bots/easy_bot.py']
 
-    maps = [71, 13, 24, 56, 7]
+                 # 'opponent_bots/spread_bot.py',
+                 # 'opponent_bots/aggressive_bot.py',
+                 # 'opponent_bots/defensive_bot.py',
+                 # 'opponent_bots/production_bot.py']
+
+    maps = [71]
+    #list(range(0,100))
+    #[71, 13, 24, 56, 7]
 
     my_bot = 'behavior_tree_bot/bt_bot.py'
     show = len(sys.argv) < 2 or sys.argv[1] == "show"
-    for opponent, map in zip(opponents, maps):
-        # use this command if you want to observe the bots
-        if show:
-            show_match(my_bot, opponent, map)
-        else:
-            # use this command if you just want the results of the matches reported
-            test(my_bot, opponent, map)
+    
+    for opponent in opponents:
+        for map in maps:
+            # use this command if you want to observe the bots
+            if show:
+                show_match(my_bot, opponent, map)
+            else:
+                # use this command if you just want the results of the matches reported
+                #logging.log("hello")
+                test(my_bot, opponent, map)
