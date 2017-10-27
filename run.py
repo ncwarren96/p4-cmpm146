@@ -54,7 +54,7 @@ def test(bot, opponent_bot, map_num):
 
 if __name__ == '__main__':
     path =  os.getcwd()
-    opponents = ['opponent_bots/easy_bot.py']
+    opponents = ['opponent_bots/spread_bot.py']
 
                  # 'opponent_bots/spread_bot.py',
                  # 'opponent_bots/aggressive_bot.py',
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     my_bot = 'behavior_tree_bot/bt_bot.py'
     show = len(sys.argv) < 2 or sys.argv[1] == "show"
-    
+    wins = 0;
     for opponent in opponents:
         for map in maps:
             # use this command if you want to observe the bots
