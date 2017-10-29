@@ -1,4 +1,5 @@
 import sys
+from math import ceil, sqrt
 sys.path.insert(0, '../')
 from planet_wars import issue_order
 
@@ -38,7 +39,11 @@ def spread_to_weakest_neutral_planet(state):
         return False
     else:
         # (4) Send half the ships from my strongest planet to the weakest enemy planet.
-        return issue_order(state, strongest_planet.ID, weakest_planet.ID, strongest_planet.num_ships / 2)
+        dist = state.distance(weakest_planet.ID, strongest_planet.ID)
+        if dist<15:
+            return issue_order(state, strongest_planet.ID, weakest_planet.ID, weakest_planet.num_ships+1)
+        else:
+            return False
 
 
 def spread_to_biggest_neutral_planet(state):
@@ -50,18 +55,19 @@ def spread_to_biggest_neutral_planet(state):
     strongest_planet = max(state.my_planets(), key=lambda p: p.num_ships, default=None)
 
     # (3) Find the weakest neutral planet.
-    neutrals_by_size = state.neutral_planets()
-    #print(neutrals_by_size)
-    neutrals_by_size.sort(key=lambda p: p.growth_rate)
-    #maximum_growth = max(state.neutral_planets(), key=lambda p: p.growth_rate, default=None)
+    potential_targets = [planet for planet in state.neutral_planets() if planet.num_ships+1 < strongest_planet.num_ships]
+    target = max(potential_targets, key=lambda p: p.growth_rate, default=None)
+    #max(state.neutral_planets(), key=lambda p: p.growth_rate, default=None)
 
-    for planet in neutrals_by_size:
-        if not strongest_planet or not planet:
-            # No legal source or destination
-            return False
+    if not strongest_planet or not target:
+        # No legal source or destination
+        return False
+    else:
+        dist = state.distance(target.ID, strongest_planet.ID)
+        if dist<15:
+            return issue_order(state, strongest_planet.ID, target.ID, target.num_ships+1)
         else:
-            if planet.num_ships+1 > strongest_planet.num_ships:
-                return issue_order(state, strongest_planet.ID, planet.ID, planet.num_ships+1)
+            return False
 
         # weakest_planet = state.neutral_planets(), key=lambda p: p.growth_rate, default=None
         # (4) Send half the ships from my strongest planet to the weakest enemy planet.

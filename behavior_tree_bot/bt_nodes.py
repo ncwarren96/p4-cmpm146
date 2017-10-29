@@ -90,3 +90,16 @@ class Action(Node):
 
     def __str__(self):
         return self.__class__.__name__ + ': ' + self.action_function.__name__
+
+
+############################## Decorator Nodes #########################
+# class LoopUntillSuccess(Node):
+#     def __init__(self, child=None):
+#         self.child = child
+
+    # def execute(self, state):
+    #     success = child.execute(state)
+    #     if success:
+    #         return True
+    #     else:
+    #         self.execute(state)

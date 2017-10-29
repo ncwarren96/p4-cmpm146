@@ -2,6 +2,7 @@ import subprocess
 import os, sys
 
 
+
 def show_match(bot, opponent_bot, map_num):
     """
         Runs an instance of Planet Wars between the two given bots on the specified map. After completion, the
@@ -15,6 +16,7 @@ def show_match(bot, opponent_bot, map_num):
     os.system(command)
 
 
+
 def test(bot, opponent_bot, map_num):
     """ Runs an instance of Planet Wars between the two given bots on the specified map. """
     bot_name, opponent_name = bot.split('/')[1].split('.')[0], opponent_bot.split('/')[1].split('.')[0]
@@ -22,7 +24,7 @@ def test(bot, opponent_bot, map_num):
     command = 'java -jar tools/PlayGame.jar maps/map' + str(map_num) +'.txt 1000 1000 log.txt ' + \
               '"python ' + bot + '" ' + \
               '"python ' + opponent_bot + '" '
-
+    global wins
     print(command)
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
 
@@ -42,7 +44,9 @@ def test(bot, opponent_bot, map_num):
             print(opponent_name, 'crashed')
             break
         elif 'Player 1 Wins!' in line:
-            print(bot_name,'wins!')
+            wins +=1
+            print(bot_name,'wins!', wins)
+
             break
         elif 'Player 2 Wins!' in line:
             print(opponent_name,'wins!')
@@ -54,14 +58,12 @@ def test(bot, opponent_bot, map_num):
 
 if __name__ == '__main__':
     path =  os.getcwd()
-    opponents = ['opponent_bots/spread_bot.py']
-
-                 # 'opponent_bots/spread_bot.py',
+    opponents = ['opponent_bots/production_bot.py']
                  # 'opponent_bots/aggressive_bot.py',
                  # 'opponent_bots/defensive_bot.py',
                  # 'opponent_bots/production_bot.py']
 
-    maps = [71]
+    maps = list(range(0,100))
     #list(range(0,100))
     #[71, 13, 24, 56, 7]
 
